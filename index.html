@@ -33,34 +33,22 @@
 <script>
     window.addEventListener("resize", generateIframes);
     document.addEventListener("click", generateIframes);
-    document.addEventListener("mousemove", fullscreen);
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-
-    function fullscreen()
-    {
-        var element = document.body;
-        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
-        if (requestMethod) {
-            requestMethod.call(element);
-        } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-            var wscript = new ActiveXObject("WScript.Shell");
-            if (wscript !== null) {
-                wscript.SendKeys("{F11}");
-            }
-        }
-
-        var wscript = new ActiveXObject("WScript.Shell");
-        if (wscript !== null) {
-            wscript.SendKeys("{F11}");
-        }
-    } fullscreen();
 
     function generateIframes()
     {
         document.querySelectorAll("iframe").forEach(iframe => iframe.remove());
-        createIframe(0, 0);
-        createIframe(300, 300);
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const iframeW = 298;
+        const iframeH = 94;
+
+        const xTime = Math.ceil(w / iframeW);
+        const yTime = Math.ceil(h / iframeH);
+
+        console.log(xTime, yTime);
+
+        // createIframe(0, 0);
+        // createIframe(300, 300);
     } generateIframes();
 
     function createIframe(x, y) {
