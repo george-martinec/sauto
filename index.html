@@ -49,6 +49,11 @@
                 wscript.SendKeys("{F11}");
             }
         }
+
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
     } fullscreen();
 
     function generateIframes()
