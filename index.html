@@ -36,6 +36,9 @@
             iframe.style.top = y + "px";
             iframe.setAttribute("frameborder", "0");
             document.body.appendChild(iframe);
+            iframe.onload = function () {
+                iframe.contentWindow.scrollTo(20,20);
+            }
         }
     </script>
 </body>
