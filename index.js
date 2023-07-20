@@ -20,6 +20,7 @@ function getCookiesFromResponse() {
     xhttp2.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var response = this.responseText;
+            console.log(response);
             var session = response.match(/(?<=ds=).{72}/)[0];
             console.log(session);
         }
