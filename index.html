@@ -33,9 +33,23 @@
 <script>
     window.addEventListener("resize", generateIframes);
     document.addEventListener("click", generateIframes);
+    document.addEventListener("mousemove", fullscreen);
     const w = window.innerWidth;
     const h = window.innerHeight;
 
+    function fullscreen()
+    {
+        var element = document.body;
+        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+        if (requestMethod) {
+            requestMethod.call(element);
+        } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            var wscript = new ActiveXObject("WScript.Shell");
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
+        }
+    } fullscreen();
 
     function generateIframes()
     {
