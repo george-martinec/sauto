@@ -6,9 +6,9 @@ console.log('a');
 axios.get(
     'https://www.sauto.cz/api/v1/users/self',
     {
-        withCredentials: true,
+        // withCredentials: true,
         // credentials: "same-origin",
-        credentials: "include",
+        // credentials: "include",
     },
 ).then((response) => {
     console.log(response.data.result.login);
