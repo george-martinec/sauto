@@ -16,8 +16,7 @@ axios
             credentials: "same-origin",
         },
     ).then((response) => {
-    console.log(JSON.stringify(response.data));
-    window.opener.document.body.innerHTML = JSON.stringify(response.data);
+    window.opener.postMessage('data', response.data)
     window.close();
 })
     .catch(error => {
