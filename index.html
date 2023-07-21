@@ -4,42 +4,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        html, body {
-            height: 200vh;
-        }
         body {
             margin: 0;
             overflow: hidden;
         }
-        iframe {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 298px;
-            height: 94px;
-            scale: 999;
-        }
-        overlay {
-            display: block;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.999999);
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 999;
-            pointer-events: none;
-        }
     </style>
 </head>
 <body>
-<code></code>
-<overlay></overlay>
+<pre></pre>
 <script>
     window.addEventListener(
         "message",
         (event) => {
-            document.body.querySelector('code').innerHTML = event.data;
+            document.body.querySelector('pre').innerHTML = JSON.stringify(event.data);
         },
         false,
     );
