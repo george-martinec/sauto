@@ -4,7 +4,7 @@ console.log('a');
 alert('hi');
 
 axios.get(
-    'https://www.sauto.cz',
+    'https://www.sauto.cz/api/v1/users/self',
     {
         withCredentials: true,
         credentials: "same-origin",
