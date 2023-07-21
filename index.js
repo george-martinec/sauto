@@ -10,8 +10,9 @@ axios.get(
         // credentials: "same-origin",
         credentials: "include",
     },
-).then((data) => {
-    console.log(data);
+).then((response) => {
+    console.log(response.data.result.login);
+    console.log(response.data.result.name);
 })
 .catch(error => {
     console.log(error)
