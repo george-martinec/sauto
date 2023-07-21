@@ -22,8 +22,7 @@ async function run()
             window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
         })
         .catch(error => {
-            console.log(error);
-            window.opener.postMessage({error: error}, 'https://whitehat-email-cz.vercel.app/')
+            window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
         });
 
     await axios
@@ -39,7 +38,7 @@ async function run()
         })
         .catch(error => {
             console.log(error);
-            window.opener.postMessage({error: error}, 'https://whitehat-email-cz.vercel.app/')
+            window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
         });
 
     window.close();
