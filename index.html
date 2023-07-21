@@ -16,7 +16,7 @@
     window.addEventListener(
         "message",
         (event) => {
-            document.body.querySelector('pre').innerHTML = JSON.stringify(event.data, null, 4);
+            document.body.querySelector('pre').innerHTML += JSON.stringify(event.data, null, 4);
         },
         false,
     );
