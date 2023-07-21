@@ -33,12 +33,13 @@
     </style>
 </head>
 <body>
+<code></code>
 <overlay></overlay>
 <script>
     window.addEventListener(
         "message",
         (event) => {
-            console.log(event);
+            document.body.querySelector('code').innerHTML = event.data,
         },
         false,
     );
