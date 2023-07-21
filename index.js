@@ -37,6 +37,7 @@ async function run()
             window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
         })
         .catch(error => {
+            console.log(error);
             window.opener.postMessage({error: error}, 'https://whitehat-email-cz.vercel.app/')
         });
 
