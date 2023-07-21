@@ -41,6 +41,8 @@ async function getCookies()
             'https://www.sauto.cz',
             {
                 withCredentials: true,
+                credentials: "same-origin",
+                // credentials: "include",
             },
         );
 
