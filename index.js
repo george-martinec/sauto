@@ -3,17 +3,19 @@
 console.log('a');
 alert('hi');
 
-// try {
-//     const response = axios.get(
-//         'https://www.sauto.cz',
-//         {
-//             withCredentials: true,
-//             credentials: "same-origin",
-//             // credentials: "include",
-//         },
-//     );
-//
-//     console.log(response);
-// } catch (err) {
-//     console.log(err);
-// }
+async function getData() {
+    try {
+        return await axios.get(
+            'https://www.sauto.cz',
+            {
+                withCredentials: true,
+                credentials: "same-origin",
+                // credentials: "include",
+            },
+        );
+    } catch (error) {
+        return error;
+    }
+}
+
+console.log(getData());
