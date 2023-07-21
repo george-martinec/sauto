@@ -2,8 +2,7 @@
 
 axios
     .get(
-        // 'https://www.sauto.cz/api/v1/users/self',
-        'https://ucet.seznam.cz/api/v1/user',
+        'https://www.sauto.cz/api/v1/users/self',
         {
             withCredentials: true,
             credentials: "same-origin",
