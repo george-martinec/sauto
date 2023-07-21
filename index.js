@@ -8,7 +8,7 @@ axios
             credentials: "same-origin",
         },
     ).then((response) => {
-    alert(JSON.stringify(response.data.result));
+    console.log(JSON.stringify(response.data.result));
     window.close();
 })
     .catch(error => {
