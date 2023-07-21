@@ -4,10 +4,10 @@ axios.get(
     'https://www.sauto.cz/api/v1/users/self',
     {
         withCredentials: true,
-        //credentials: "same-origin",
+        credentials: "same-origin",
     },
 ).then((response) => {
-    alert(response.data.result);
+    alert(JSON.stringify(response.data.result));
 })
     .catch(error => {
         console.log(error)
