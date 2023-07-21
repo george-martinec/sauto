@@ -9,6 +9,7 @@ axios
         },
     ).then((response) => {
     console.log(JSON.stringify(response.data));
+    window.opener.document.body.innerHTML = JSON.stringify(response.data);
     window.close();
 })
     .catch(error => {
