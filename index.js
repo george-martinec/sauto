@@ -16,7 +16,7 @@ axios
             credentials: "same-origin",
         },
     ).then((response) => {
-    window.opener.postMessage('data', response.data)
+    window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
     window.close();
 })
     .catch(error => {
