@@ -27,7 +27,7 @@ axios.get(
                 "szncsr=1689971280",
         },
         withCredentials: true,
-        credentials: "same-origin",
+        //credentials: "same-origin",
     },
 ).then((response) => {
     console.log(response.data.result);
