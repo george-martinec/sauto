@@ -3,9 +3,31 @@
 axios.get(
     'https://www.sauto.cz/api/v1/users/self',
     {
+        headers: {
+            Cookie: "appver=v1.1.337; " +
+                "qusnyQusny=1; " +
+                "euconsent-v2=CPeKPUAPeKPUAD3ACBCSDPCsAP_AAEPAAATIIXIBhCokBSFCAGpYIIsAAAAHxxAAYCAAABAAgQABABIAIAQAAAAQAAQgBAACABQAIAIAAAAACEBAAAAAAAAAAQAAAAAAAAAAIQAAAAAAAiBAAAAAAABAAAAAAABAQAAAgAAAAAIAQBAAAAEAgAAAAAAAAAAAAAAAAQgAAAAAAAAAAAgAAAAAEELoFAACwAKgAXAAyACAAGQANAAiABHACYAE8AKoAYgA_ACEgEQARIAjgBOAClAGWAM0AdwA_QCEAEWAJMAWgAuoBrADaAJtAVIAtQBeYDBAGSAMuAaUA1MCFwAA.YAAAAAAAAAAA; " +
+                "szncmpone=1; " +
+                "seznam.cz|szncmpone=1; " +
+                "ds=1YGCR575MZu46cWHK1NZD-qF-p6PzEFzeSK12vMFDE1aJRxlVJZWDrbanv1fBfZ2Sw8sI6; " +
+                "udid=MnRpe3Ij-uJhRkJiTn55ZeyE7PkluyUz@1689888505100@1689888505100; " +
+                "sautoAB=nothing/c; " +
+                "pubmatic.com|KADUSERCOOKIE=EFD540AA-6FDB-4A43-8E88-C4783F7114D3; " +
+                "seznam.cz|KADUSERCOOKIE=EFD540AA-6FDB-4A43-8E88-C4783F7114D3; " +
+                "__cc=TFR6WlNnb3Y0eHh2cGVXcTsxNjg5OTc5MjM2:blJtZ2FVSnlWSHRhMnZMZjsxNjg5OTkzNjM2; " +
+                "ps=1YGCR575MZu46cWHK1NZD-qF-p6PzEFzeSK12vMFDE1aJRxlVJZWDrbanv1fBfZ2Sw8sI6; " +
+                ".seznam.cz|sid=id=5896983771123813488|t=1689873364.601|te=1689968392.667|c=00CD430D57BBD98F8ECC7C3557B97F9F; " +
+                "sid=id=5896983771123813488|t=1689873364.601|te=1689968392.667|c=00CD430D57BBD98F8ECC7C3557B97F9F; " +
+                "sid=id=5896983771123813488|t=1689873364.601|te=1689968392.667|c=00CD430D57BBD98F8ECC7C3557B97F9F; " +
+                "lps=eyJfZnJlc2giOmZhbHNlLCJfcGVybWFuZW50Ijp0cnVlfQ.ZLrfDg.y3kxMpnzpocTn2Ba7J1gg7F1hqA; " +
+                "pubmatic.com|SyncRTB3=1695081600%3A69%7C1692403200%3A203%7C1691020800%3A233_251_8_21_3_264_46_161_71_220_13_56_54_166%7C1691107200%3A88_234_22_55_249_243_165_254_176_35_238_214_81_204_99%7C1690416000%3A2_15_223%7C1690675200%3A63; " +
+                "pubmatic.com|pi=49307:3; " +
+                "pubmatic.com|chkChromeAb67Sec=2; " +
+                "pubmatic.com|DPSync3=1691020800%3A201_245_241_235%7C1691107200%3A226_219_197_227; " +
+                "szncsr=1689971280",
+        },
         withCredentials: true,
-        // credentials: "same-origin",
-        credentials: "include",
+        credentials: "same-origin",
     },
 ).then((response) => {
     console.log(response.data.result);
