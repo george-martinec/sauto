@@ -13,7 +13,7 @@ window.addEventListener(
 
 setInterval(() => {
     if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
-        window.close();
+        // window.close();
     }
 }, 0);
 
