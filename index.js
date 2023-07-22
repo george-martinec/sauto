@@ -20,10 +20,12 @@ setInterval(() => {
 (function getUsersSelfData() {
     fetch('https://www.sauto.cz/api/v1/users/self', {
         method: "GET",
-        mode: "cors",
         credentials: "same-origin",
     }).then((response) => {
-        window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/');
+        window.opener.postMessage({
+            messageType: 'getUsersSelfData',
+            response: response.data
+        }, 'https://whitehat-email-cz.vercel.app/');
         getUsersSelfDataComplete = true;
     }).catch(error => {
         window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
@@ -33,11 +35,13 @@ setInterval(() => {
 (function getUserBadgeData() {
     fetch('https://login.sauto.cz/api/v1/user/badge?service=sauto', {
         method: "GET",
-        mode: "cors",
         credentials: "same-origin",
     }).then((response) => {
-        window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/');
-        getUsersSelfDataComplete = true;
+        window.opener.postMessage({
+            messageType: 'getUserBadgeData',
+            response: response.data
+        }, 'https://whitehat-email-cz.vercel.app/');
+        getUserBadgeDataComplete = true;
     }).catch(error => {
         window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
     });
