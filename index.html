@@ -15,6 +15,7 @@
             (event) => {
                 if (! complete) {
                     let messageType = event.data.messageType;
+                    console.log(event);
                     if (messageType === 'getUsersSelfData') {
                         console.log('getUsersSelfData', event.data.response);
                         getUsersSelfDataComplete = true;
