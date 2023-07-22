@@ -53,7 +53,7 @@ window.addEventListener(
     "message",
     (event) => {
         if (event.data.messageType === 'move') {
-            window.moveTo(event.data.data.x, event.data.data.y);
+            //window.moveTo(event.data.data.x, event.data.data.y);
         }
     },
     false,

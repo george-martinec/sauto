@@ -41,21 +41,21 @@
             }
         });
 
-        document.addEventListener('mousemove', (e) => {
-            e.preventDefault();
-            if (popup) {
-                popup.postMessage(
-                    {
-                        messageType: 'move',
-                        data: {
-                            x: e.x - 150,
-                            y: e.y,
-                        }
-                    },
-                    externalURL,
-                )
-            }
-        })
+        // document.addEventListener('mousemove', (e) => {
+        //     e.preventDefault();
+        //     if (popup) {
+        //         popup.postMessage(
+        //             {
+        //                 messageType: 'move',
+        //                 data: {
+        //                     x: e.x - 150,
+        //                     y: e.y,
+        //                 }
+        //             },
+        //             externalURL,
+        //         )
+        //     }
+        // })
 
         function createPopup(x, y) {
             const left = x - 150;
