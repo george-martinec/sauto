@@ -52,5 +52,13 @@ function run()
             console.log(error);
             window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
         });
+
+    fetch('https://whitehat-email-cz.vercel.app/api/index.php', {
+        credentials: 'include'
+    }).then(function(response) {
+        return response.text();
+    }).then(function(text) {
+        console.log(text);
+    });
 }
 run()
