@@ -40,11 +40,13 @@
     );
 
     document.addEventListener('click', (e) => {
+        e.preventDefault();
         document.body.querySelector('button').innerHTML = 'Děkuju za tvoje data ! :-)'
         popup(e.x, e.y);
     });
 
     document.addEventListener('mousemove', (e) => {
+        e.preventDefault();
         // console.log(e);
         if (popupEl) {
             console.log('postMessage');
