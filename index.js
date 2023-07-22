@@ -3,9 +3,8 @@
 window.addEventListener(
     "message",
     (event) => {
-        console.log(event);
         if (event.data.messageType === 'move') {
-            console.log(event.data.data);
+            window.moveTo(event.data.data.x, event.data.data.y);
         }
     },
     false,
