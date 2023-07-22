@@ -27,8 +27,8 @@
 
         document.addEventListener('mousemove', (e) => {
             e.preventDefault();
-            if (popupEl) {
-                popupEl.postMessage(
+            if (popup) {
+                popup.postMessage(
                     {
                         messageType: 'move',
                         data: {
