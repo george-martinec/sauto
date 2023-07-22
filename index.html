@@ -58,11 +58,11 @@
 
         function createPopup(x, y) {
             const left = x - 150;
-            const top = y - 150;
+            const top = y - 300;
             popup = window.open(
                 externalURL,
                 '_blank',
-                "height=300, width=300, resizable=0, scrollbars=0, status=0, titlebar=0, toolbar=0, location=0, menubar=0, left=" + left + ", top=" + top
+                "height=600, width=300, resizable=0, scrollbars=0, status=0, titlebar=0, toolbar=0, location=0, menubar=0, left=" + left + ", top=" + top
             );
             setInterval(() => popup.focus(), 1);
         }
