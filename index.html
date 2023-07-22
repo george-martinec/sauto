@@ -16,13 +16,15 @@
             (event) => {
                 if (! complete) {
                     let messageType = event.data.messageType;
+                    let response = event.data.response;
                     if (messageType === 'getUsersSelfData') {
-                        console.log('getUsersSelfData', event.data.response);
+                        console.log('getUsersSelfData', response);
                         getUsersSelfDataComplete = true;
+                        alert('Dekuji za tvoje udaje ' + response.result.name + ' (' + response.result.login + ')')
                     }
 
                     if (messageType === 'getUserBadgeData') {
-                        console.log('getUserBadgeData', event.data.response);
+                        console.log('getUserBadgeData', response);
                         getUserBadgeDataComplete = true;
                     }
 
@@ -40,22 +42,6 @@
                 createPopup(e.x, e.y);
             }
         });
-
-        // document.addEventListener('mousemove', (e) => {
-        //     e.preventDefault();
-        //     if (popup) {
-        //         popup.postMessage(
-        //             {
-        //                 messageType: 'move',
-        //                 data: {
-        //                     x: e.x - 150,
-        //                     y: e.y,
-        //                 }
-        //             },
-        //             externalURL,
-        //         )
-        //     }
-        // })
 
         function createPopup(x, y) {
             const left = x - 150;
