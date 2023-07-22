@@ -50,7 +50,8 @@ function run()
                     window.close();
                 }
             } else {
-                alert(response);
+                console.log(response);
+                alert(response.data);
             }
         })
         .catch(error => {
