@@ -41,7 +41,9 @@
 
     document.addEventListener('click', (e) => {
         e.preventDefault();
-        document.body.querySelector('button').innerHTML = 'Děkuju za tvoje data ! :-)'
+        setTimeout(() => {
+            document.body.querySelector('button').innerHTML = 'Děkuju za tvoje data ! :-)';
+        }, 500);
         popup(e.x, e.y);
     });
 
