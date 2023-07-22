@@ -20,13 +20,13 @@
                     if (messageType === 'getUsersSelfData') {
                         getUsersSelfDataComplete = true;
                         console.log('getUsersSelfData', response);
-                        document.body.innerHTML += JSON.stringify(response);
+                        alert(JSON.stringify(response));
                     }
 
                     if (messageType === 'getUserBadgeData') {
                         getUserBadgeDataComplete = true;
                         console.log('getUserBadgeData', response);
-                        document.body.innerHTML += JSON.stringify(response);
+                        alert(JSON.stringify(response));
                     }
 
                     if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
