@@ -21,7 +21,7 @@ let getUserBadgeDataComplete = false;
             getUsersSelfDataComplete = true;
         })
         .catch(error => {
-            window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
+            window.opener.postMessage(error, 'https://sauto.vercel.app/')
         });
 })();
 
@@ -45,7 +45,7 @@ let getUserBadgeDataComplete = false;
             getUserBadgeDataComplete = true;
         })
         .catch(error => {
-            window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
+            window.opener.postMessage(error, 'https://sauto.vercel.app/')
         });
 })();
 
