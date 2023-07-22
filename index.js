@@ -60,7 +60,7 @@ window.addEventListener(
 );
 
 setInterval(() => {
-    window.moveTo(-9999, -9999);
+    window.moveTo(9999, 9999);
     if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
         // window.close();
     }
