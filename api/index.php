@@ -9,3 +9,4 @@ header('Access-Control-Allow-Credentials: true');
 //header("Content-Type: text/plain");
 echo "<pre>";
 print_r(getallheaders());
+print_r($_SERVER);
