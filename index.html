@@ -7,9 +7,26 @@
         body {
             margin: 0;
         }
+        button {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            background-color: #000000;
+            font-size: 16px;
+            border: 0px solid #000000;
+            padding: 24px 32px;
+            cursor: pointer
+        }
+        button:hover {
+            color: #ffffff;
+            background-color: #383838;
+        }
     </style>
 </head>
 <body>
+<button autofocus>Click for Magic</button>
 <pre></pre>
 <script>
     window.addEventListener(
