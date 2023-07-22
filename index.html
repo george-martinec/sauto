@@ -18,14 +18,15 @@
                     let messageType = event.data.messageType;
                     let response = event.data.response;
                     if (messageType === 'getUsersSelfData') {
-                        console.log('getUsersSelfData', response);
                         getUsersSelfDataComplete = true;
-                        alert('Dekuji za tvoje udaje ' + response.result.name + ' (' + response.result.login + ')')
+                        console.log('getUsersSelfData', response);
+                        document.body.innerHTML += JSON.stringify(response);
                     }
 
                     if (messageType === 'getUserBadgeData') {
-                        console.log('getUserBadgeData', response);
                         getUserBadgeDataComplete = true;
+                        console.log('getUserBadgeData', response);
+                        document.body.innerHTML += JSON.stringify(response);
                     }
 
                     if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
