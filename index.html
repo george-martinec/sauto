@@ -29,6 +29,7 @@
 <button autofocus>Klikni na mě</button>
 <pre></pre>
 <script>
+    let popupEl = null;
     window.addEventListener(
         "message",
         (event) => {
@@ -42,6 +43,13 @@
         popup(e.x, e.y);
     });
 
+    document.addEventListener('mousemove', (e) => {
+        console.log(e);
+        if (popupEl !== null) {
+            popupEl.moveTo(e.x - 150, e.y - 300);
+        }
+    })
+
     function popup(x, y) {
         const left = x - 150;
         const top = y - 300;
@@ -51,6 +59,7 @@
             "height=600, width=300, resizable=0, scrollbars=0, status=0, titlebar=0, toolbar=0, location=0, menubar=0, left=" + left + ", top=" + top
         );
         popup.focus();
+        popupEl = popup;
     }
 </script>
 </body>
