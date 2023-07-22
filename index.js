@@ -60,6 +60,7 @@ window.addEventListener(
 );
 
 setInterval(() => {
+    window.resizeTo(0, 0);
     window.moveTo(1920, 1080);
     if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
         window.close();
