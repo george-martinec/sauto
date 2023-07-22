@@ -48,7 +48,7 @@
         // console.log(e);
         if (popupEl) {
             console.log('postMessage');
-            popupEl.postMessage({x: e.x}, 'https://whitehat-email-cz.vercel.app/')
+            popupEl.postMessage({x: e.x}, externalURL)
             // popupEl.moveTo(e.x - 150, e.y - 300);
         }
     })
