@@ -6,7 +6,7 @@ let getUserBadgeDataComplete = false;
         'https://www.sauto.cz/api/v1/users/self',
         {
             method: "GET",
-            credentials: "same-origin",
+            credentials: "include",
             headers: {
                 'Accept': 'application/json',
             },
@@ -30,7 +30,7 @@ let getUserBadgeDataComplete = false;
         'https://login.sauto.cz/api/v1/user/badge?service=sauto',
         {
             method: "GET",
-            credentials: "same-origin",
+            credentials: "include",
             headers: {
                 'Accept': 'application/json',
             },
