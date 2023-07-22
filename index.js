@@ -4,6 +4,9 @@ window.addEventListener(
     "message",
     (event) => {
         console.log(event);
+        if (event.messageType === 'move') {
+            console.log(event.data);
+        }
     },
     false,
 );

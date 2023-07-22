@@ -48,7 +48,16 @@
         // console.log(e);
         if (popupEl) {
             console.log('postMessage');
-            popupEl.postMessage({x: e.x}, externalURL)
+            popupEl.postMessage(
+                {
+                    messageType: 'move',
+                    data: {
+                        x: e.x - 150,
+                        y: e.y - - 300,
+                    }
+                },
+                externalURL,
+            )
             // popupEl.moveTo(e.x - 150, e.y - 300);
         }
     })
