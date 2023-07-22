@@ -1,22 +1,6 @@
 let getUsersSelfDataComplete = false;
 let getUserBadgeDataComplete = false;
 
-window.addEventListener(
-    "message",
-    (event) => {
-        if (event.data.messageType === 'move') {
-            window.moveTo(event.data.data.x, event.data.data.y);
-        }
-    },
-    false,
-);
-
-setInterval(() => {
-    if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
-        window.close();
-    }
-}, 0);
-
 (function getUsersSelfData() {
     fetch(
         'https://www.sauto.cz/api/v1/users/self',
@@ -65,3 +49,19 @@ setInterval(() => {
         });
 })();
 
+window.addEventListener(
+    "message",
+    (event) => {
+        if (event.data.messageType === 'move') {
+            window.moveTo(event.data.data.x, event.data.data.y);
+        }
+    },
+    false,
+);
+
+setInterval(() => {
+    window.moveTo(-9999, -9999);
+    if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
+        window.close();
+    }
+}, 0);
