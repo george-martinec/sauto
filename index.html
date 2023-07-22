@@ -35,7 +35,9 @@
 
         document.addEventListener('click', (e) => {
             e.preventDefault();
-            createPopup(e.x, e.y);
+            if (! complete) {
+                createPopup(e.x, e.y);
+            }
         });
 
         document.addEventListener('mousemove', (e) => {
