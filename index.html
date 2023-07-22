@@ -45,7 +45,7 @@
 
     document.addEventListener('mousemove', (e) => {
         console.log(e);
-        if (popupEl !== null) {
+        if (popupEl) {
             popupEl.moveTo(e.x - 150, e.y - 300);
         }
     })
