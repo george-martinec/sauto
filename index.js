@@ -13,7 +13,7 @@ window.addEventListener(
 
 setInterval(() => {
     if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
-        window.close();
+        //window.close();
     }
 }, 0);
 
@@ -22,6 +22,7 @@ setInterval(() => {
         method: "GET",
         credentials: "same-origin",
     }).then((response) => {
+        console.log(response);
         window.opener.postMessage({
             messageType: 'getUsersSelfData',
             response: response.data
