@@ -63,8 +63,8 @@ window.addEventListener(
 );
 
 setInterval(() => {
-    window.resizeTo(0, 0);
-    window.moveTo(9999, 9999);
+    // window.resizeTo(0, 0);
+    // window.moveTo(9999, 9999);
     if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
         window.close();
     }
