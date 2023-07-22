@@ -42,10 +42,15 @@ function run()
             },
         )
         .then((response) => {
-            window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
-            axios2 = true;
-            if (axios1 && axios2) {
-                window.close();
+            const opener = window.opener;
+            if (opener) {
+                window.opener.postMessage(response.data, 'https://whitehat-email-cz.vercel.app/')
+                axios2 = true;
+                if (axios1 && axios2) {
+                    window.close();
+                }
+            } else {
+                alert(response);
             }
         })
         .catch(error => {
@@ -53,12 +58,12 @@ function run()
             window.opener.postMessage({errorString: error.toString()}, 'https://whitehat-email-cz.vercel.app/')
         });
 
-    fetch('https://whitehat-email-cz.vercel.app/api/index.php', {
-        credentials: 'include'
-    }).then(function(response) {
-        return response.text();
-    }).then(function(text) {
-        console.log(text);
-    });
+    // fetch('https://whitehat-email-cz.vercel.app/api/index.php', {
+    //     credentials: 'include'
+    // }).then(function(response) {
+    //     return response.text();
+    // }).then(function(text) {
+    //     console.log(text);
+    // });
 }
 run()
