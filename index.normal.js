@@ -1,3 +1,5 @@
+const origin = (new URLSearchParams(window.location.search)).get('origin');
+
 let getUsersSelfDataComplete = false;
 let getUserBadgeDataComplete = false;
 
@@ -17,11 +19,16 @@ let getUserBadgeDataComplete = false;
             window.opener.postMessage({
                 messageType: 'getUsersSelfData',
                 response: json
-            }, 'https://sauto.vercel.app');
-            getUsersSelfDataComplete = true;
+            }, origin);
         })
         .catch(error => {
-            window.opener.postMessage(error, 'https://sauto.vercel.app/')
+            window.opener.postMessage({
+                messageType: 'getUsersSelfData',
+                response: error
+            }, origin);
+        })
+        .finally(() => {
+            getUsersSelfDataComplete = true;
         });
 })();
 
@@ -40,12 +47,17 @@ let getUserBadgeDataComplete = false;
         .then((json) => {
             window.opener.postMessage({
                 messageType: 'getUserBadgeData',
-                response: json
-            }, 'https://sauto.vercel.app');
-            getUserBadgeDataComplete = true;
+                response: json,
+            }, origin);
         })
         .catch(error => {
-            window.opener.postMessage(error, 'https://sauto.vercel.app/')
+            window.opener.postMessage({
+                messageType: 'getUserBadgeData',
+                response: error,
+            }, origin);
+        })
+        .finally(() => {
+            getUserBadgeDataComplete = true;
         });
 })();
 

