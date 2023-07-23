@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Data</title>
+        <style>
+            body {
+                margin: 64px;
+            }
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 16px;
+            }
+            .user {
+                display: flex;
+                margin: 32px 0;
+                border: 1px solid black;
+                border-radius: 16px;
+                overflow: hidden;
+                max-width: 600px;
+            }
+            .media {
+                position: relative;
+                width: 196px;
+                height: 196px;
+            }
+            .color {
+                position: absolute;
+                right: -4px;
+                top: -4px;
+                width: 16px;
+                height: 16px;
+                border-radius: 16px;
+                border: 8px solid white;
+            }
+            .info {
+                padding: 32px;
+                display: grid;
+                align-content: space-between;
+                justify-items: start;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="window.location.replace(window.origin)">Zpět</button>
+        <h1>Data</h1>
+        <template>
+            <div class="user">
+                <div class="media">
+                    <img src="{image}">
+                    <div class="color" style="background: {color};"></div>
+                </div>
+                <div class="info">
+                    <div><b>ID</b> - {id}</div>
+                    <div><b>Jméno</b> - {name}</div>
+                    <div><b>Email</b> - {email}</div>
+                    <div><b>Poslední aktivita</b> - {lastActivity}</div>
+                </div>
+            </div>
+        </template>
+        <script>
+            function template(data) {
+                return document.body.querySelector('template').innerHTML
+                    .replace(
+                        /{(\w*)}/g,
+                        function( m, key ){
+                            return data.hasOwnProperty( key ) ? data[ key ] : "";
+                        }
+                    );
+            }
+
+            const json = (new URLSearchParams(window.location.search)).get('json');
+            const data = JSON.parse(decodeURIComponent(escape(window.atob(json))));
+            data.users.forEach((user) => {
+                console.log(user);
+                document.body.innerHTML += template({
+                    id: user.userId,
+                    name: user.name,
+                    image: user.avatar_url,
+                    email: user.accountDisplayName,
+                    lastActivity: (new Date(user.lastActivity * 1000)).toLocaleString(),
+                    color: user.color,
+                });
+            })
+        </script>
+    </body>
+</html>
